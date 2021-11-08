@@ -48,24 +48,28 @@ rcParams['figure.titlesize']='medium'
 rcParams['axes.prop_cycle']=cycler('color', ['#66c2a5','#fc8d62','#8da0cb','#e78ac3','#a6d854','#ffd92f','#e5c494','#b3b3b3'])
 rcParams['image.cmap'] = 'inferno'
 
-def saveFigure(fig,saveTitle="",specialLocation=None,figureDirectory="~/Documents/figureMaking/figures/",saveTypes=['pdf','svg']):
+def saveFigure(fig,saveTitle="",specialLocation=None,figureDirectory=None,saveTypes=['pdf','svg']):
     """saves a figure by date (folder) and time (name) 
     Args:
 
         fig (matplotlib fig object): the figure to be saved
         saveTitle (str, optional): name to be saved as. Current time will be appended to this Defaults to "".
     """	
+    #make global figure directory (in same directory as tomplotlib unless otherwise specificed)
+    if figureDirectory is None: 
+        figureDirectory = os.path.dirname(os.path.dirname(tomplotlib.__file__))
+        figureDirectory = figureDirectory  + "/Figures/"
+        if not os.path.isdir(figureDirectory):
+            os.mkdir(figureDirectory)
 
-    figureDirectory = os.path.expanduser(figureDirectory)
+    #make today-specific directory inside figure directory  
     today =  datetime.strftime(datetime.now(),'%y%m%d')
     if not os.path.isdir(figureDirectory + f"{today}/"):
         os.mkdir(figureDirectory + f"{today}/")
     
     filetypes = ['pdf','svg']
     for filetype in filetypes:
-        figdir = figureDirectory + f"{today}/" + filetype + "/"
-        if not os.path.isdir(figdir):
-            os.mkdir(figdir)
+        figdir = figureDirectory + f"{today}/"
         now = datetime.strftime(datetime.now(),'%H%M')
         path_ = f"{figdir}{saveTitle}_{now}"
         path = path_
@@ -74,7 +78,7 @@ def saveFigure(fig,saveTitle="",specialLocation=None,figureDirectory="~/Document
             if os.path.isfile(path+"." + filetype):
                 path = path_+"_"+str(i)
                 i+=1
-            elif i >= 10: break
+            elif i >= 100: break
             else: break
         fig.savefig(path+"."+filetype,bbox_inches='tight')
     
@@ -92,8 +96,6 @@ def hideAxes(ax):
     ax.spines['bottom'].set_color(rcParams['axes.edgecolor'])
     ax.spines['bottom'].set_linewidth(2)
     ax.spines['top'].set_color('none')
-
-
 
 
 
