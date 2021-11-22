@@ -1,6 +1,7 @@
 """
 The function of this is to set rcParams and define a bunch of functions which make figure plotting easy and consistent
 """
+
 from posix import times_result
 import matplotlib
 import matplotlib.pyplot as plt 
@@ -13,6 +14,7 @@ from cycler import cycler
 import numpy as np 
 from datetime import datetime 
 import os 
+
 
 darkgrey = [0.3,0.3,0.3,1]
 #FONT 

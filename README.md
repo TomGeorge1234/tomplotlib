@@ -4,7 +4,7 @@ Welcome to tomplotlib. My wrapper for matplotlib.
 This package will style your plots and defines some useful functions. 
 
 ## Installation
-To install run
+To install, run
 ```
 pip install git+https://github.com/TomGeorge1234/tomplotlib.git
 ```
@@ -24,7 +24,7 @@ import tomplotlib.tomplotlib as tpl
 ```
 fig, ax = makeFigure()
 ```
-[]!(./readmefigures/pretomplotlib.pdf)
+[]!('./readmefigures/pretomplotlib.pdf')
 
 * Default ```tomplotlib``` (after having import ```tomplotlib```)
 ```
