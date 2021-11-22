@@ -25,7 +25,7 @@ import tomplotlib.tomplotlib as tpl
 fig, ax = makeFigure()
 ```
 
-![pretomplotlib](/readmefigures/pretomplotlib.png)
+![pretomplotlib](/readmefigures/pretomplotlib.png =200x)
 
 * Default ```tomplotlib``` (after having import ```tomplotlib```)
 ```
@@ -33,7 +33,7 @@ import tomplotlib.tomplotlib as tpl
 fig, ax = makeFigure()
 ```
 
-![posttomplotlib](/readmefigures/posttomplotlib.png)
+![posttomplotlib](/readmefigures/posttomplotlib.png =200x)
 
 * ```xyAxes()``` tidies the axes 
 ```
@@ -43,7 +43,7 @@ tpl.xyAxes(ax)
 
 ```
 
-![xyAxes](/readmefigures/xyAxes.png)
+![xyAxes](/readmefigures/xyAxes.png =200x)
 
 * ```setColorScheme()``` sets the colour scheme
 ```
