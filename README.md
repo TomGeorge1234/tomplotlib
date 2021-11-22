@@ -24,14 +24,14 @@ import tomplotlib.tomplotlib as tpl
 ```
 fig, ax = makeFigure()
 ```
-![](readmefigures/pretomplotlib.png)
+![](readmefigures/pretomplotlib.pdf)
 
 * Default ```tomplotlib``` (after having import ```tomplotlib```)
 ```
 import tomplotlib.tomplotlib as tpl 
 fig, ax = makeFigure()
 ```
-![](./readmefigures/posttomplotlib.png)
+![](./readmefigures/posttomplotlib.pdf)
 
 * ```xyAxes()``` tidies the axes 
 ```
@@ -40,7 +40,7 @@ fig, ax = makeFigure()
 tpl.xyAxes(ax)
 
 ```
-![](./readmefigures/xyAxes.png)
+![](./readmefigures/xyAxes.pdf)
 
 * ```setColorScheme()``` sets the colour scheme
 ```
@@ -57,7 +57,7 @@ tpl.setColorscheme(colorscheme=[[0.9,0.9,0.9],[0.75,0.75,0.75],[0.6,0.6,0.6],[0.
 fig, ax = makeFigure(N=5)
 ```
 You pass ```colorscheme``` as an ```int``` (schemes I have defined), as ```str``` (matplotlib schemes, see [here](https://matplotlib.org/stable/tutorials/colors/colormaps.html)) or as a ```list``` of colors (e.g. list of hexstrings). These will become C0, C1, C2...
-![](./readmefigures/colorschemes.png)
+![](./readmefigures/colorschemes.pdf)
 
 
 * ```saveFigure```
