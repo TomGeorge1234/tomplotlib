@@ -24,14 +24,14 @@ import tomplotlib.tomplotlib as tpl
 ```
 fig, ax = makeFigure()
 ```
-[]!('./readmefigures/pretomplotlib.pdf')
+[]!(readmefigures/pretomplotlib.png)
 
 * Default ```tomplotlib``` (after having import ```tomplotlib```)
 ```
 import tomplotlib.tomplotlib as tpl 
 fig, ax = makeFigure()
 ```
-[]!(./readmefigures/posttomplotlib.pdf)
+[]!(./readmefigures/posttomplotlib.png)
 
 * ```xyAxes()``` tidies the axes 
 ```
@@ -40,7 +40,7 @@ fig, ax = makeFigure()
 tpl.xyAxes(ax)
 
 ```
-[]!(./readmefigures/xyAxes.pdf)
+[]!(./readmefigures/xyAxes.png)
 
 * ```setColorScheme()``` sets the colour scheme
 ```
@@ -57,7 +57,7 @@ tpl.setColorscheme(colorscheme=[[0.9,0.9,0.9],[0.75,0.75,0.75],[0.6,0.6,0.6],[0.
 fig, ax = makeFigure(N=5)
 ```
 You pass ```colorscheme``` as an ```int``` (schemes I have defined), as ```str``` (matplotlib schemes, see [here](https://matplotlib.org/stable/tutorials/colors/colormaps.html)) or as a ```list``` of colors (e.g. list of hexstrings). These will become C0, C1, C2...
-[]!(./readmefigures/colorschemes.pdf)
+[]!(./readmefigures/colorschemes.png)
 
 * ```saveFigure```
 This, in my opinion, is the most useful bit. By defining a figure directory (```tpl.figureDirectory = "where_to_save_my_figures/Figures/"```), you can call ```tpl.saveFigure(fig, `figureName`)```. This will timestamp the figure and save it in the figure directory, inside another directory which is the current days date. ```"./"``` is your current working directory so the default is set "./Figures/".
