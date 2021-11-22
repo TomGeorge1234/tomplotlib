@@ -54,9 +54,6 @@ rcParams['legend.edgecolor'] = darkgrey
 rcParams['lines.linewidth']=2
 rcParams['lines.markersize'] = 2
 rcParams['lines.markeredgewidth'] = 0.0
-#COLOR SCHEMES
-rcParams['axes.prop_cycle']=cycler('color', ['#66c2a5','#fc8d62','#8da0cb','#e78ac3','#a6d854','#ffd92f','#e5c494','#b3b3b3'])
-rcParams['axes.prop_cycle']=cycler('color', ['#7b699a','#37738f','#2eb37f','#bed539','#523577','#e97670','#f6d444','#9a539b'])
 #IMSHOWS
 rcParams['image.cmap'] = 'inferno'
 #BOXPLOTS
@@ -125,7 +122,19 @@ def xyAxes(ax):
         ax.set_xlim(xlim_og)
 
 
-
+def setColorscheme(colorscheme): 
+    # global rcParams['axes.prop_cycle']
+    if isinstance(colorscheme,int):
+        if colorscheme == 1: 
+            rcParams['axes.prop_cycle']=cycler('color', ['#66c2a5','#fc8d62','#8da0cb','#e78ac3','#a6d854','#ffd92f','#e5c494','#b3b3b3'])
+        if colorscheme == 2: 
+            rcParams['axes.prop_cycle']=cycler('color', ['#7b699a','#37738f','#2eb37f','#bed539','#523577','#e97670','#f6d444','#9a539b'])
+    elif isinstance(colorscheme,list):
+        rcParams['axes.prop_cycle']=cycler('color', colorscheme)
+    elif isinstance(colorscheme,str):
+        colorscheme_ = getattr(plt.cm,colorscheme)
+        rcParams['axes.prop_cycle'] = cycler(color=colorscheme_.colors)
+    return
 
 
 
