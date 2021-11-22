@@ -1,8 +1,6 @@
 """
 The function of this is to set rcParams and define a bunch of functions which make figure plotting easy and consistent
 """
-
-
 from posix import times_result
 import matplotlib
 import matplotlib.pyplot as plt 
@@ -16,10 +14,16 @@ import numpy as np
 from datetime import datetime 
 import os 
 
+darkgrey = [0.3,0.3,0.3,1]
+#FONT 
 matplotlib.rcParams['pdf.fonttype'] = 42 #this is super weird, see http://phyletica.org/matplotlib-fonts/
 rcParams['font.family'] = 'sans-serif'
 rcParams['font.sans-serif'] = 'Helvetica'
+#FIGURE
 rcParams['figure.dpi']= 400
+rcParams['figure.figsize'] = [2,2] #2 x 2 inches
+rcParams['figure.titlesize']='medium'
+#AXES
 rcParams['axes.labelsize']=7
 rcParams['axes.labelpad']=3
 rcParams['axes.titlepad']=3
@@ -27,28 +31,43 @@ rcParams['axes.titlesize']=9
 rcParams['axes.xmargin']=0
 rcParams['axes.ymargin']=0
 rcParams['axes.facecolor']=[1,1,1,0] 
-rcParams['axes.edgecolor'] = 'darkgrey'
+rcParams['axes.edgecolor'] = darkgrey
 rcParams['axes.linewidth'] = 2
-rcParams['lines.linewidth'] = 20
+#TICKS
 rcParams['xtick.major.width'] = 2
-rcParams['figure.figsize'] = [2,2] #2 x 2 inches
-rcParams['xtick.color'] = 'darkgrey'
+rcParams['xtick.color'] = darkgrey
 rcParams['ytick.major.width'] = 2
-rcParams['ytick.color'] = 'darkgrey'
+rcParams['ytick.color'] = darkgrey
 rcParams['xtick.labelsize']=7
 rcParams['ytick.labelsize']=7
-rcParams['grid.linewidth']=0.1
-rcParams['legend.fontsize']=7
-rcParams['lines.linewidth']=0.5
-rcParams['lines.markersize'] = 1.5
 rcParams['xtick.major.pad']=2
 rcParams['xtick.minor.pad']=2
 rcParams['ytick.major.pad']=2
 rcParams['ytick.minor.pad']=2
-rcParams['figure.titlesize']='medium'
+#GRIDS
+rcParams['grid.linewidth']=0.1
+#LEGEND
+rcParams['legend.fontsize']=7
+rcParams['legend.facecolor'] = [1,1,1,0.3]
+rcParams['legend.edgecolor'] = darkgrey
+#LINES
+rcParams['lines.linewidth']=2
+rcParams['lines.markersize'] = 2
+rcParams['lines.markeredgewidth'] = 0.0
+#COLOR SCHEMES
 rcParams['axes.prop_cycle']=cycler('color', ['#66c2a5','#fc8d62','#8da0cb','#e78ac3','#a6d854','#ffd92f','#e5c494','#b3b3b3'])
 rcParams['axes.prop_cycle']=cycler('color', ['#7b699a','#37738f','#2eb37f','#bed539','#523577','#e97670','#f6d444','#9a539b'])
+#IMSHOWS
 rcParams['image.cmap'] = 'inferno'
+#BOXPLOTS
+rcParams['boxplot.flierprops.linewidth'] = 2
+rcParams['boxplot.meanprops.linewidth'] = 2
+rcParams['boxplot.medianprops.linewidth'] = 2
+rcParams['boxplot.boxprops.linewidth'] = 2
+rcParams['boxplot.whiskerprops.linewidth'] = 2
+rcParams['boxplot.capprops.linewidth'] = 2
+
+
 
 def saveFigure(fig,saveTitle="",specialLocation=None,saveTypes=['pdf','svg']):
     """saves a figure by date (folder) and time (name) 
@@ -57,11 +76,6 @@ def saveFigure(fig,saveTitle="",specialLocation=None,saveTypes=['pdf','svg']):
         fig (matplotlib fig object): the figure to be saved
         saveTitle (str, optional): name to be saved as. Current time will be appended to this Defaults to "".
     """	
-    print("testing \n testing ")
-    #make global figure directory (in same directory as tomplotlib unless otherwise specificed)
-    try: print("Saving figures in %s" %(os.path.abspath(figureDirectory)))
-    except: 
-        print("figureDirectory undefined. \nDefine one globally with figureDirectory = '.../' \nIt must end with '.../Figures/' \nIf it doesn't, this directory will be made (i.e. figures saved in figureDirectory + 'Figures/')")
     #figureDirectory = figureDirectory  
     if not os.path.isdir(figureDirectory):
         os.mkdir(figureDirectory)
@@ -91,12 +105,8 @@ def saveFigure(fig,saveTitle="",specialLocation=None,saveTypes=['pdf','svg']):
 
     return path
 
-def testPrint():
-    print("cwd = ", os.getcwd())
-    print("Congrats, this seems to be printing, v2!")
-    return
 
-def hideAxes(ax):
+def xyAxes(ax):
     ax.spines['left'].set_position('zero')
     ax.spines['left'].set_color(rcParams['axes.edgecolor'])
     ax.spines['left'].set_linewidth(2)
@@ -105,6 +115,18 @@ def hideAxes(ax):
     ax.spines['bottom'].set_color(rcParams['axes.edgecolor'])
     ax.spines['bottom'].set_linewidth(2)
     ax.spines['top'].set_color('none')
+    #removes tick at x = 0 (now covered )
+    if 0 in ax.get_xticks():
+        xlim_og = ax.get_xlim()
+        ts = list(ax.get_xticks())
+        wherezero = ts.index(0)
+        ts.remove(ts[wherezero])
+        ax.set_xticks(ts)
+        ax.set_xlim(xlim_og)
+
+
+
+
 
 
 
