@@ -31,6 +31,7 @@ rcParams['axes.edgecolor'] = 'darkgrey'
 rcParams['axes.linewidth'] = 2
 rcParams['lines.linewidth'] = 20
 rcParams['xtick.major.width'] = 2
+rcParams['figure.figsize'] = [2,2] #2 x 2 inches
 rcParams['xtick.color'] = 'darkgrey'
 rcParams['ytick.major.width'] = 2
 rcParams['ytick.color'] = 'darkgrey'
@@ -46,21 +47,24 @@ rcParams['ytick.major.pad']=2
 rcParams['ytick.minor.pad']=2
 rcParams['figure.titlesize']='medium'
 rcParams['axes.prop_cycle']=cycler('color', ['#66c2a5','#fc8d62','#8da0cb','#e78ac3','#a6d854','#ffd92f','#e5c494','#b3b3b3'])
+rcParams['axes.prop_cycle']=cycler('color', ['#7b699a','#37738f','#2eb37f','#bed539','#523577','#e97670','#f6d444','#9a539b'])
 rcParams['image.cmap'] = 'inferno'
 
-def saveFigure(fig,saveTitle="",specialLocation=None,figureDirectory=None,saveTypes=['pdf','svg']):
+def saveFigure(fig,saveTitle="",specialLocation=None,saveTypes=['pdf','svg']):
     """saves a figure by date (folder) and time (name) 
     Args:
 
         fig (matplotlib fig object): the figure to be saved
         saveTitle (str, optional): name to be saved as. Current time will be appended to this Defaults to "".
     """	
+    print("testing \n testing ")
     #make global figure directory (in same directory as tomplotlib unless otherwise specificed)
-    if figureDirectory is None: 
-        figureDirectory = os.path.dirname(os.path.dirname(tomplotlib.__file__))
-        figureDirectory = figureDirectory  + "/Figures/"
-        if not os.path.isdir(figureDirectory):
-            os.mkdir(figureDirectory)
+    try: print("Saving figures in %s" %(os.path.abspath(figureDirectory)))
+    except: 
+        print("figureDirectory undefined. \nDefine one globally with figureDirectory = '.../' \nIt must end with '.../Figures/' \nIf it doesn't, this directory will be made (i.e. figures saved in figureDirectory + 'Figures/')")
+    #figureDirectory = figureDirectory  
+    if not os.path.isdir(figureDirectory):
+        os.mkdir(figureDirectory)
 
     #make today-specific directory inside figure directory  
     today =  datetime.strftime(datetime.now(),'%y%m%d')
@@ -86,6 +90,11 @@ def saveFigure(fig,saveTitle="",specialLocation=None,figureDirectory=None,saveTy
         fig.savefig(specialLocation,bbox_inches='tight')
 
     return path
+
+def testPrint():
+    print("cwd = ", os.getcwd())
+    print("Congrats, this seems to be printing, v2!")
+    return
 
 def hideAxes(ax):
     ax.spines['left'].set_position('zero')
