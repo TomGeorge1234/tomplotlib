@@ -84,8 +84,7 @@ def saveFigure(fig,saveTitle="",specialLocation=None,saveTypes=['pdf','svg']):
     if not os.path.isdir(figureDirectory + f"{today}/"):
         os.mkdir(figureDirectory + f"{today}/")
     
-    filetypes = ['pdf','svg']
-    for filetype in filetypes:
+    for filetype in saveTypes:
         figdir = figureDirectory + f"{today}/"
         now = datetime.strftime(datetime.now(),'%H%M')
         path_ = f"{figdir}{saveTitle}_{now}"
