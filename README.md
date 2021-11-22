@@ -61,7 +61,7 @@ fig, ax = makeFigure(N=5)
 ```
 You pass ```colorscheme``` as an ```int``` (schemes I have defined), as ```str``` (matplotlib schemes, see [here](https://matplotlib.org/stable/tutorials/colors/colormaps.html)) or as a ```list``` of colors (e.g. list of hexstrings). These will become C0, C1, C2...
 
-<img src="/readmefigures/colorschemes.png" width="200">
+<img src="/readmefigures/colorschemes.png">
 
 
 * ```saveFigure```
