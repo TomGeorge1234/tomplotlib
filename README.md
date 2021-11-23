@@ -15,33 +15,18 @@ python setup.py install
 ```
 
 ## Importing 
-Import ```tomplotlib``` into your code with: 
+Import ```tomplotlib``` into your code with: /
 ```
 import tomplotlib.tomplotlib as tpl 
 ```
+set's most of the required style parameters. 
 
 ## Usage
-* Default matplotlib: 
-```
-fig, ax = makeFigure()
-```
+* ```tpl.xyAxes(ax)``` 
+Tidies the axes, leaving only x and y axes at zero. 
 
-* Default ```tomplotlib``` (after having import ```tomplotlib```)
-```
-import tomplotlib.tomplotlib as tpl 
-fig, ax = makeFigure()
-```
 
-* ```xyAxes()``` tidies the axes 
-Leaves only x and y axes and puts them at zero. 
-```
-import tomplotlib.tomplotlib as tpl 
-fig, ax = makeFigure()
-tpl.xyAxes(ax)
-
-```
-
-* ```setColorScheme()``` sets the colour scheme
+* ```tpl.setColorScheme(colorscheme)``` sets the colour scheme
 ```
 tpl.setColorscheme(colorscheme=1)
 fig, ax = makeFigure(N=5)
@@ -60,7 +45,7 @@ You pass ```colorscheme``` as an ```int``` (schemes I have defined), as ```str``
 <img src="/readmefigures/colorschemes.png">
 
 
-* ```saveFigure```
+* ```tpl.saveFigure(fig)```
 This, in my opinion, is the most useful bit. By defining a figure directory (```tpl.figureDirectory = "where_to_save_my/Figures/"```), you can call ```tpl.saveFigure(fig, `figureName`)```. This will timestamp the figure and save it in the figure directory, inside another directory which is the todays days date. ```"./"``` is your current working directory so the default is set "./Figures/". By default images will be saved as `.pdf`s, `.png`s and `.svg`s
 
 ```

@@ -66,6 +66,7 @@ rcParams['boxplot.boxprops.linewidth'] = 2
 rcParams['boxplot.whiskerprops.linewidth'] = 2
 rcParams['boxplot.capprops.linewidth'] = 2
 
+setColorscheme(2) 
 
 
 def saveFigure(fig,saveTitle="",specialLocation=None,saveTypes=['pdf','svg']):
