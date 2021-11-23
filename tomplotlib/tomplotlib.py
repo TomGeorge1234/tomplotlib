@@ -26,10 +26,10 @@ rcParams['figure.dpi']= 400
 rcParams['figure.figsize'] = [2,2] #2 x 2 inches
 rcParams['figure.titlesize']='medium'
 #AXES
-rcParams['axes.labelsize']=7
+rcParams['axes.labelsize']=8
 rcParams['axes.labelpad']=3
 rcParams['axes.titlepad']=3
-rcParams['axes.titlesize']=9
+rcParams['axes.titlesize']=8
 rcParams['axes.xmargin']=0
 rcParams['axes.ymargin']=0
 rcParams['axes.facecolor']=[1,1,1,0] 
@@ -40,8 +40,8 @@ rcParams['xtick.major.width'] = 2
 rcParams['xtick.color'] = darkgrey
 rcParams['ytick.major.width'] = 2
 rcParams['ytick.color'] = darkgrey
-rcParams['xtick.labelsize']=7
-rcParams['ytick.labelsize']=7
+rcParams['xtick.labelsize']=8
+rcParams['ytick.labelsize']=8
 rcParams['xtick.major.pad']=2
 rcParams['xtick.minor.pad']=2
 rcParams['ytick.major.pad']=2
@@ -49,7 +49,7 @@ rcParams['ytick.minor.pad']=2
 #GRIDS
 rcParams['grid.linewidth']=0.1
 #LEGEND
-rcParams['legend.fontsize']=7
+rcParams['legend.fontsize']=6
 rcParams['legend.facecolor'] = [1,1,1,0.3]
 rcParams['legend.edgecolor'] = darkgrey
 #LINES
@@ -65,9 +65,6 @@ rcParams['boxplot.medianprops.linewidth'] = 2
 rcParams['boxplot.boxprops.linewidth'] = 2
 rcParams['boxplot.whiskerprops.linewidth'] = 2
 rcParams['boxplot.capprops.linewidth'] = 2
-
-setColorscheme(2) 
-
 
 def saveFigure(fig,saveTitle="",specialLocation=None,saveTypes=['pdf','svg']):
     """saves a figure by date (folder) and time (name) 
@@ -107,12 +104,8 @@ def saveFigure(fig,saveTitle="",specialLocation=None,saveTypes=['pdf','svg']):
 
 def xyAxes(ax):
     ax.spines['left'].set_position('zero')
-    ax.spines['left'].set_color(rcParams['axes.edgecolor'])
-    ax.spines['left'].set_linewidth(2)
     ax.spines['right'].set_color('none')        
     ax.spines['bottom'].set_position('zero')
-    ax.spines['bottom'].set_color(rcParams['axes.edgecolor'])
-    ax.spines['bottom'].set_linewidth(2)
     ax.spines['top'].set_color('none')
     #removes tick at x = 0 (now covered )
     if 0 in ax.get_xticks():
@@ -138,7 +131,7 @@ def setColorscheme(colorscheme):
         rcParams['axes.prop_cycle'] = cycler(color=colorscheme_.colors)
     return
 
-
+setColorscheme(2) 
 
 
 
