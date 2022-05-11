@@ -34,11 +34,11 @@ rcParams['axes.xmargin']=0
 rcParams['axes.ymargin']=0
 rcParams['axes.facecolor']=[1,1,1,0] 
 rcParams['axes.edgecolor'] = darkgrey
-rcParams['axes.linewidth'] = 2
+rcParams['axes.linewidth'] = 1
 #TICKS
-rcParams['xtick.major.width'] = 2
+rcParams['xtick.major.width'] = 1
 rcParams['xtick.color'] = darkgrey
-rcParams['ytick.major.width'] = 2
+rcParams['ytick.major.width'] = 1
 rcParams['ytick.color'] = darkgrey
 rcParams['xtick.labelsize']=8
 rcParams['ytick.labelsize']=8
@@ -53,18 +53,18 @@ rcParams['legend.fontsize']=6
 rcParams['legend.facecolor'] = [1,1,1,0.3]
 rcParams['legend.edgecolor'] = darkgrey
 #LINES
-rcParams['lines.linewidth']=2
-rcParams['lines.markersize'] = 2
+rcParams['lines.linewidth']=1
+rcParams['lines.markersize'] = 1
 rcParams['lines.markeredgewidth'] = 0.0
 #IMSHOWS
 rcParams['image.cmap'] = 'inferno'
 #BOXPLOTS
-rcParams['boxplot.flierprops.linewidth'] = 2
-rcParams['boxplot.meanprops.linewidth'] = 2
-rcParams['boxplot.medianprops.linewidth'] = 2
-rcParams['boxplot.boxprops.linewidth'] = 2
-rcParams['boxplot.whiskerprops.linewidth'] = 2
-rcParams['boxplot.capprops.linewidth'] = 2
+rcParams['boxplot.flierprops.linewidth'] = 1
+rcParams['boxplot.meanprops.linewidth'] = 1
+rcParams['boxplot.medianprops.linewidth'] = 1
+rcParams['boxplot.boxprops.linewidth'] = 1
+rcParams['boxplot.whiskerprops.linewidth'] = 1
+rcParams['boxplot.capprops.linewidth'] = 1
 
 def saveFigure(fig,saveTitle="",specialLocation=None,saveTypes=['pdf','svg']):
     """saves a figure by date (folder) and time (name) 
