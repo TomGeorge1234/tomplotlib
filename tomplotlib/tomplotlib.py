@@ -18,7 +18,10 @@ import os
 
 darkgrey = [0.3,0.3,0.3,1]
 #FONT 
-matplotlib.rcParams['pdf.fonttype'] = 42 #this is super weird, see http://phyletica.org/matplotlib-fonts/
+# matplotlib.rcParams['pdf.fonttype'] = 42 #this is super weird, see http://phyletica.org/matplotlib-fonts/
+matplotlib.rcParams['pdf.fonttype'] = 3 
+
+
 rcParams['font.family'] = 'sans-serif'
 rcParams['font.sans-serif'] = 'Helvetica'
 #FIGURE
