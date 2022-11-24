@@ -147,7 +147,7 @@ def setColorscheme(colorscheme,divisions=None):
             rcParams['axes.prop_cycle'] = cycler(color=colorscheme_.colors)
     return
 
-setColorscheme('viridis') 
+setColorscheme(2) 
 
 
 
