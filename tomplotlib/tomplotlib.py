@@ -120,7 +120,7 @@ def xyAxes(ax):
         ax.set_xlim(xlim_og)
 
 
-def setColorscheme(colorscheme): 
+def setColorscheme(colorscheme,divisions=None): 
     # global rcParams['axes.prop_cycle']
     if isinstance(colorscheme,int):
         if colorscheme == 1: 
@@ -129,12 +129,25 @@ def setColorscheme(colorscheme):
             rcParams['axes.prop_cycle']=cycler('color', ['#7b699a','#37738f','#2eb37f','#bed539','#523577','#e97670','#f6d444','#9a539b'])
     elif isinstance(colorscheme,list):
         rcParams['axes.prop_cycle']=cycler('color', colorscheme)
-    elif isinstance(colorscheme,str):
-        colorscheme_ = getattr(plt.cm,colorscheme)
-        rcParams['axes.prop_cycle'] = cycler(color=colorscheme_.colors)
+    elif isinstance(colorscheme,str): #
+        if colorscheme in ['viridis', 'plasma', 'inferno', 'magma', 'cividis']:
+            colorscheme_ = getattr(plt.cm,'viridis')
+            if divisions is None: 
+                print("Colorscheme NOT set. For this continuous colormap please specify a number of divisions with argument `divisions=...`")
+                return 
+            else:
+                d = divisions
+                colorlist = [colorscheme_.__call__(f) for f in np.linspace(0+1/(2*d),1-(1/(2*d)),d)]
+                alpha=0.3
+                colorlist_1 = [tuple(alpha*np.array(color[:3]) + (1-alpha)*np.array([1,1,1])) for color in colorlist]
+                colorlist_t = colorlist + colorlist_1
+                setColorscheme(colorlist_t)
+        else:
+            colorscheme_ = getattr(plt.cm,colorscheme)
+            rcParams['axes.prop_cycle'] = cycler(color=colorscheme_.colors)
     return
 
-setColorscheme(2) 
+setColorscheme('viridis') 
 
 
 
@@ -146,5 +159,7 @@ if __name__ == "__main__":
     ax.plot(x,np.sin(x))
     ax.set_xlabel("x / m")
     ax.set_ylabel("A dependent variable / a.u.")
-    hideAxes(ax)
-    saveFigure(fig)
+    xyAxes(ax)
+    # saveFigure(fig)
+
+
