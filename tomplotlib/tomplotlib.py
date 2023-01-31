@@ -20,10 +20,12 @@ darkgrey = [0.3,0.3,0.3,1]
 #FONT 
 # matplotlib.rcParams['pdf.fonttype'] = 42 #this is super weird, see http://phyletica.org/matplotlib-fonts/
 matplotlib.rcParams['pdf.fonttype'] = 3 
-
-
 rcParams['font.family'] = 'sans-serif'
 rcParams['font.sans-serif'] = 'Helvetica'
+rcParams['text.color'] = darkgrey
+rcParams['axes.labelcolor'] = darkgrey
+rcParams['xtick.color'] = darkgrey
+rcParams['ytick.color'] = darkgrey
 #FIGURE
 rcParams['figure.dpi']= 400
 rcParams['figure.figsize'] = [2,2] #2 x 2 inches
@@ -69,7 +71,9 @@ rcParams['boxplot.boxprops.linewidth'] = 1
 rcParams['boxplot.whiskerprops.linewidth'] = 1
 rcParams['boxplot.capprops.linewidth'] = 1
 
-def saveFigure(fig,saveTitle="",specialLocation=None,saveTypes=['pdf','svg']):
+
+saveTypes = ['pdf','svg','png']
+def saveFigure(fig,saveTitle="",specialLocation=None,saveTypes=saveTypes):
     """saves a figure by date (folder) and time (name) 
     Args:
 
