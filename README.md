@@ -7,11 +7,11 @@ This package will style your plots and define some useful functions, including a
 ## Installation
 To install, run
 ```
-pip install git+https://github.com/TomGeorge1234/tomplotlib.git
+pip install tomplotlib
 ```
 Alternatively, clone this directory and then run:
 ```
-python install .
+python setup.py install
 ```
 (install in edit mode `pip install -e .` if you wish the edit the code.)
 
