@@ -2,7 +2,7 @@
 
 `tomplotlib` is Tom's wrapper for `matplotlib`. 
 This package will style your plots and define some useful functions, including a function for automated saving of figures labelled by date and time. 
-<img src="./readmefigures/tomplotlib.png" width="600">
+<img src="./figs/tomplotlib.png" width="600">
 
 ## Installation
 To install, run
@@ -59,6 +59,6 @@ fig, ax = #some code which makes a matplotlib figure
 ```
 You pass ```colorscheme``` as an ```int``` (schemes I have defined), as ```str``` (matplotlib schemes, see [here](https://matplotlib.org/stable/tutorials/colors/colormaps.html)) or as a ```list``` of colors (e.g. list of hexstrings). These will become C0, C1, C2...
 
-<img src="./readmefigures/colorschemes.png">
+<img src="./figs/colorschemes.png">
 
 
