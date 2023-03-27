@@ -25,7 +25,7 @@ set's most of the required style parameters.
 ## Usage
 
 * ```tpl.save_figure(fig)```
-This, in my opinion, is the most useful function. By defining a figure directory (```tpl.figure_directory = "where_to_save_my/Figures/"```), you can call ```tpl.save_figure(fig, `figureName`)``` on any `matplotlib` figure or animation object. This will timestamp the figure and save it in the figure directory, inside another directory which is the todays days date. ```"./"``` is your current working directory so the default is set "./Figures/". By default images will be saved as `.png`s and `.svg`s, If an animation object if passed this will be saved as `'.gif'` and `'.mp4'`. 
+This, in my opinion, is the most useful function. By defining a figure directory (```tpl.figure_directory = "where_to_save_my/Figures/"```), you can call ```tpl.save_figure(fig, `figureName`)``` on any `matplotlib` figure or animation object. This will timestamp the figure and save it in the figure directory (which will be made if it doesn't already exist), inside another directory which is the todays days date. By default images will be saved as `.png`s and `.svg`s, If an animation object if passed this will be saved as `'.gif'` and `'.mp4'`. 
 
 ```
 import tomplotlib as tpl 
