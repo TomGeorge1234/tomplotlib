@@ -1,3 +1,6 @@
+[![PyPI version](https://badge.fury.io/py/tomplotlib.svg)](https://badge.fury.io/py/tomplotlib)
+
+
 # tomplotlib
 
 `tomplotlib` is Tom's wrapper for `matplotlib`. 
