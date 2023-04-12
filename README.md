@@ -4,7 +4,8 @@
 # tomplotlib
 
 `tomplotlib` is Tom's wrapper for `matplotlib`. 
-This package will style your plots and define some useful functions, including a function for automated saving of figures labelled by date and time. 
+This package will style your plots and define some useful functions, including a function for automated saving of figures labelled by date and time. The main code is found in `./tomplotlib/tpl.py`
+
 <img src="./figs/tomplotlib.png" width="600">
 
 ## Installation
