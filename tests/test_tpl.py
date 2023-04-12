@@ -9,7 +9,7 @@ def test_import():
 
     assert tpl.figure_directory is None
 
-
+#makes a figure 
 fig, ax = plt.subplots()
 ax.scatter(np.random.uniform(50), np.random.uniform(50))
 
