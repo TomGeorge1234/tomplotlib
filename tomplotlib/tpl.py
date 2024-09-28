@@ -1,7 +1,6 @@
 """
 The function of this is to set rcParams and define a bunch of functions which make figure plotting easy and consistent
 """
-print("importing tomplotlib package")
 import tomplotlib
 
 import matplotlib
@@ -77,6 +76,8 @@ def save_figure(
     save_title="",
     fig_save_types=["png", "svg"],
     anim_save_types=["mp4", "gif"],
+    **kwargs = {},
+
 ):
     """
     Saves a figures and animations by date (folder) and time (name) as both '.png' and '.svg'
@@ -124,7 +125,7 @@ def save_figure(
                     break
                 else:
                     break
-            fig.savefig(path + "." + filetype, bbox_inches="tight")
+            fig.savefig(path + "." + filetype, bbox_inches="tight", **kwargs)
 
     elif type(fig) == matplotlib.animation.FuncAnimation:
         file_type = "Animation"
@@ -139,7 +140,7 @@ def save_figure(
                     break
                 else:
                     break
-            fig.save(path + "." + filetype)
+            fig.save(path + "." + filetype, **kwargs)
 
     print(f"{file_type} saved to {os.path.abspath(path)}.{save_types}")
 
